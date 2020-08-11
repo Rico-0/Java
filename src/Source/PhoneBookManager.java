@@ -3,8 +3,8 @@ package Source;
 import java.util.*;
 
 
-/* ArrayList ¹öÀü. ´Ù½Ã Array·Î ¹Ù²Ù±â */
-/* HashMap ¹öÀüÀ¸·Îµµ ¸¸µé¾î º¸±â */
+/* ArrayList ë²„ì „. ë‹¤ì‹œ Arrayë¡œ ë°”ê¾¸ê¸° */
+/* HashMap ë²„ì „ìœ¼ë¡œë„ ë§Œë“¤ì–´ ë³´ê¸° */
 
 public class PhoneBookManager {
 	
@@ -12,17 +12,17 @@ public class PhoneBookManager {
 	private static final int UNIVERSITY = 2;
 	private static final int COMPANY = 3;
 	
-	ArrayList<PhoneInfo> info; // Á¤º¸ ´ã´Â ¹è¿­
+	ArrayList<PhoneInfo> info; // ì •ë³´ ë‹´ëŠ” ë°°ì—´
 	
 	public PhoneBookManager() {
-		info = new ArrayList<>(); // »ı¼ºÀÚ·Î °´Ã¼ »ı¼º ½Ã ArrayList¸¦ »ı¼º
+		info = new ArrayList<>(); // ìƒì„±ìë¡œ ê°ì²´ ìƒì„± ì‹œ ArrayListë¥¼ ìƒì„±
 	}
 	
 	public void inputInfo(int select) {
-		System.out.println("µ¥ÀÌÅÍ ÀÔ·ÂÀ» ½ÃÀÛÇÕ´Ï´Ù.");
-		System.out.println("1. ÀÏ¹İ");
-		System.out.println("2. ´ëÇĞ");
-		System.out.println("3. È¸»ç");
+		System.out.println("ë°ì´í„° ì…ë ¥ì„ ì‹œì‘í•©ë‹ˆë‹¤.");
+		System.out.println("1. ì¼ë°˜");
+		System.out.println("2. ëŒ€í•™");
+		System.out.println("3. íšŒì‚¬");
 		String name = "";
 		String phoneNumber = "";
 		String major = "";
@@ -35,141 +35,141 @@ public class PhoneBookManager {
 			throw new Exception();
 		switch(select) {
 		case DEFAULT:
-			System.out.print("ÀÌ¸§ : ");
+			System.out.print("ì´ë¦„ : ");
 			name = sc.next();
-			System.out.print("ÀüÈ­¹øÈ£ : ");
+			System.out.print("ì „í™”ë²ˆí˜¸ : ");
 			phoneNumber = sc.next();
-			sc.nextLine(); // Enter Å° ¹Ş±â
+			sc.nextLine(); // Enter í‚¤ ë°›ê¸°
 			if(!checkSameName(name)) {
 				info.add(new PhoneInfo(name,phoneNumber));
-				System.out.println("µ¥ÀÌÅÍ ÀÔ·ÂÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("ë°ì´í„° ì…ë ¥ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 			}
 			break;
 		case UNIVERSITY:
-			System.out.print("ÀÌ¸§ : ");
+			System.out.print("ì´ë¦„ : ");
 			name = sc.next();
-			System.out.print("ÀüÈ­¹øÈ£ : ");
+			System.out.print("ì „í™”ë²ˆí˜¸ : ");
 			phoneNumber = sc.next();
-			System.out.print("Àü°ø : " );
+			System.out.print("ì „ê³µ : " );
 			major = sc.next();
-			System.out.print("ÇĞ³â : ");
+			System.out.print("í•™ë…„ : ");
 			year = sc.next();
 			if(!checkSameName(name)) {
 				info.add(new PhoneUnivInfo(name,phoneNumber,major,year));
-				System.out.println("µ¥ÀÌÅÍ ÀÔ·ÂÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("ë°ì´í„° ì…ë ¥ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 			}
 			break;
 		case COMPANY:
-			System.out.print("ÀÌ¸§ : ");
+			System.out.print("ì´ë¦„ : ");
 			name = sc.next();
-			System.out.print("ÀüÈ­¹øÈ£ : ");
+			System.out.print("ì „í™”ë²ˆí˜¸ : ");
 			phoneNumber = sc.next();
-			System.out.print("È¸»ç  : ");
+			System.out.print("íšŒì‚¬  : ");
 			company = sc.next();
 			if(!checkSameName(name)) {
 				info.add(new PhoneCompanyInfo(name,phoneNumber,company));
-				System.out.println("µ¥ÀÌÅÍ ÀÔ·ÂÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("ë°ì´í„° ì…ë ¥ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 			}
 			break;
 			}
 		} catch (Exception e) {
-			System.out.println(select + "¿¡ ÇØ´çÇÏ´Â ¼±ÅÃÀº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ¸Ş´º ¼±ÅÃÀ» Ã³À½ºÎÅÍ ´Ù½Ã ÁøÇàÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+			System.out.println(select + "ì— í•´ë‹¹í•˜ëŠ” ì„ íƒì€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë©”ë‰´ ì„ íƒì„ ì²˜ìŒë¶€í„° ë‹¤ì‹œ ì§„í–‰í•´ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 		}
 	}
 	
 	
-	/* ¿ì¸®´Â µ¿¸íÀÌÀÎÀº ¾ø´Ù°í °¡Á¤ÇÒ °ÍÀÌ¹Ç·Î µ¿¸íÀÌÀÎÀÇ µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏ´ÂÁö °Ë»ç */
+	/* ìš°ë¦¬ëŠ” ë™ëª…ì´ì¸ì€ ì—†ë‹¤ê³  ê°€ì •í•  ê²ƒì´ë¯€ë¡œ ë™ëª…ì´ì¸ì˜ ë°ì´í„°ê°€ ì¡´ì¬í•˜ëŠ”ì§€ ê²€ì‚¬ */
 	public boolean checkSameName(String name) {
 		Iterator<PhoneInfo> itr = info.iterator();
 		while(itr.hasNext()) {
 			PhoneInfo tmp = itr.next();
 			if(tmp.getName().equals(name)) {
-				System.out.println("ÀÌ¸§ÀÌ °°Àº »ç¶÷ÀÌ ÀÌ¹Ì ÀÖ½À´Ï´Ù.");
+				System.out.println("ì´ë¦„ì´ ê°™ì€ ì‚¬ëŒì´ ì´ë¯¸ ìˆìŠµë‹ˆë‹¤.");
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	/* µ¥ÀÌÅÍÀÇ °Ë»ö */
+	/* ë°ì´í„°ì˜ ê²€ìƒ‰ */
 	public boolean searchInfo(String name) {
 		int i = 0;
 		for(i = 0; i < info.size(); i++) {
 			if(info.get(i).getName().equals(name)){
 				if(info.get(i) instanceof PhoneCompanyInfo) {
 					System.out.println("=======================================" + "\n"
-							+ "ÀÌ¸§ : " + info.get(i).getName() + "\n"
-							+ "ÀüÈ­¹øÈ£ : " + info.get(i).getPhoneNumber() + "\n"
-							+ "È¸»ç : " + ((PhoneCompanyInfo) info.get(i)).getCompany() + "\n"
+							+ "ì´ë¦„ : " + info.get(i).getName() + "\n"
+							+ "ì „í™”ë²ˆí˜¸ : " + info.get(i).getPhoneNumber() + "\n"
+							+ "íšŒì‚¬ : " + ((PhoneCompanyInfo) info.get(i)).getCompany() + "\n"
 							+ "=======================================" + "\n");
 				}
 				else if (info.get(i) instanceof PhoneUnivInfo) {
 					System.out.println("=======================================" + "\n"
-							+ "ÀÌ¸§ : " + info.get(i).getName() + "\n"
-							+ "ÀüÈ­¹øÈ£ : " + info.get(i).getPhoneNumber() + "\n"
-							+ "Àü°ø : " + ((PhoneUnivInfo) info.get(i)).getMajor() + "\n"
-							+ "ÇĞ³â : " + ((PhoneUnivInfo) info.get(i)).getYear() + "\n"
+							+ "ì´ë¦„ : " + info.get(i).getName() + "\n"
+							+ "ì „í™”ë²ˆí˜¸ : " + info.get(i).getPhoneNumber() + "\n"
+							+ "ì „ê³µ : " + ((PhoneUnivInfo) info.get(i)).getMajor() + "\n"
+							+ "í•™ë…„ : " + ((PhoneUnivInfo) info.get(i)).getYear() + "\n"
 							+ "=======================================" + "\n");
 				}
 				else {
 					System.out.println("=======================================" + "\n"
-							+ "ÀÌ¸§ : " + info.get(i).getName() + "\n"
-							+ "ÀüÈ­¹øÈ£ : " + info.get(i).getPhoneNumber() + "\n"
+							+ "ì´ë¦„ : " + info.get(i).getName() + "\n"
+							+ "ì „í™”ë²ˆí˜¸ : " + info.get(i).getPhoneNumber() + "\n"
 							+ "=======================================" + "\n");
 				}
 				return true;
 			}
 		}
 		if(i >= info.size()) {
-			System.out.println("ÀÏÄ¡ÇÏ´Â µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ì¼ì¹˜í•˜ëŠ” ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
 			return false;
 		}
 		return false;
 	}
 	
-	/* µ¥ÀÌÅÍÀÇ »èÁ¦ */
+	/* ë°ì´í„°ì˜ ì‚­ì œ */
 	public void deleteInfo(String name) {
 		int i = 0;
 		for(i = 0; i < info.size(); i++) {
 			if(info.get(i).getName().equals(name)) {
 				info.remove(i);
-				System.out.println("µ¥ÀÌÅÍ »èÁ¦°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+				System.out.println("ë°ì´í„° ì‚­ì œê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				return;
 			}
 		}
 		if(i >= info.size())
-			System.out.println("ÀÏÄ¡ÇÏ´Â µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ì¼ì¹˜í•˜ëŠ” ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
 	}
 	
-	/* µ¥ÀÌÅÍ ¼öÁ¤ */
-	public void modifyInfo(String name) throws IndexOutOfBoundsException {
-		// ¼öÁ¤ Àü ¸ÕÀú ÇØ´ç µ¥ÀÌÅÍ°¡ ÀÖ´ÂÁö ÀÌ¸§À¸·Î °Ë»ç
+	/* ë°ì´í„° ìˆ˜ì • : ì•„ì§ ì™„ì„± ì•ˆ í•¨.. */
+	/* public void modifyInfo(String name) throws IndexOutOfBoundsException {
+		// ìˆ˜ì • ì „ ë¨¼ì € í•´ë‹¹ ë°ì´í„°ê°€ ìˆëŠ”ì§€ ì´ë¦„ìœ¼ë¡œ ê²€ì‚¬
 		int i = 0;
 		Scanner sc = new Scanner(System.in);
-		// ¿¹¿Ü Ã³¸® ¾ÆÁ÷ ±¸Çö ¾È ÇÔ
+		// ì˜ˆì™¸ ì²˜ë¦¬ ì•„ì§ êµ¬í˜„ ì•ˆ í•¨
 		for(i = 0; i < info.size(); i++) {
-			if(info.get(i).getName().equals(name)) // ÀÏÄ¡ÇÏ´Â ÀÌ¸§ÀÌ ÀÖÀ» °æ¿ì ¹İº¹¹® Á¾·á
+			if(info.get(i).getName().equals(name)) // ì¼ì¹˜í•˜ëŠ” ì´ë¦„ì´ ìˆì„ ê²½ìš° ë°˜ë³µë¬¸ ì¢…ë£Œ
 				break;
 		}
 		
 		if(i >= info.size()) {
-			System.out.println("ÇØ´çÇÏ´Â µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("í•´ë‹¹í•˜ëŠ” ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
 		
-		PhoneInfo tmp = info.get(i); // À§ ¹İº¹¹®¿¡¼­ ¾òÀº °ªÀ» ÀÓ½Ã PhoneInfo °´Ã¼¿¡ ÀúÀå
+		PhoneInfo tmp = info.get(i); // ìœ„ ë°˜ë³µë¬¸ì—ì„œ ì–»ì€ ê°’ì„ ì„ì‹œ PhoneInfo ê°ì²´ì— ì €ì¥
 		
-		String[] newInfo = new String[3]; // º¯¼ö 3°³¸¦ ¼±¾ğÇØµµ µÇÁö¸¸ ±×³É ¹è¿­·Î ¹­¾ú´Ù.
+		String[] newInfo = new String[3]; // ë³€ìˆ˜ 3ê°œë¥¼ ì„ ì–¸í•´ë„ ë˜ì§€ë§Œ ê·¸ëƒ¥ ë°°ì—´ë¡œ ë¬¶ì—ˆë‹¤.
 		
-		// ¼öÁ¤ÇÒ µ¥ÀÌÅÍ°¡ ÀüÃ¼ÀÏ ¼öµµ ÀÖ°í, ÇÏ³ª È¤Àº µÎ °³ÀÏ ¼öµµ ÀÖÀ¸¹Ç·Î °¢°¢ÀÇ °æ¿ì¸¦ Ã¼Å©ÇØ ÁØ´Ù.
-		// ¼öÁ¤ÇÒ °æ¿ì true, ¼öÁ¤ÇÏÁö ¾ÊÀ» °æ¿ì false
+		// ìˆ˜ì •í•  ë°ì´í„°ê°€ ì „ì²´ì¼ ìˆ˜ë„ ìˆê³ , í•˜ë‚˜ í˜¹ì€ ë‘ ê°œì¼ ìˆ˜ë„ ìˆìœ¼ë¯€ë¡œ ê°ê°ì˜ ê²½ìš°ë¥¼ ì²´í¬í•´ ì¤€ë‹¤.
+		// ìˆ˜ì •í•  ê²½ìš° true, ìˆ˜ì •í•˜ì§€ ì•Šì„ ê²½ìš° false
 		boolean[] ischecked = new boolean[3];
 		int[] input = new int[2];
-		Arrays.fill(ischecked, false); // ÃÊ±â°ªÀº ÀüºÎ falseÀÎ »óÅÂ
-		System.out.println("¼öÁ¤ÇÒ µ¥ÀÌÅÍ¸¦ ¼±ÅÃÇÏ¼¼¿ä. ¼öÁ¤ÇÏÁö ¾ÊÀ» µ¥ÀÌÅÍ´Â 0À¸·Î Àû¾îÁÖ¼¼¿ä.");
-		//System.out.println("¿¹) ÀüÈ­¹øÈ£¿Í »ı³â¿ùÀÏ ¼öÁ¤ : 0  , ¸ğµÎ ¼öÁ¤ : 1 2 3");
-		System.out.println("1. ÀÌ¸§");
-		System.out.println("2. ÀüÈ­¹øÈ£");
+		Arrays.fill(ischecked, false); // ì´ˆê¸°ê°’ì€ ì „ë¶€ falseì¸ ìƒíƒœ
+		System.out.println("ìˆ˜ì •í•  ë°ì´í„°ë¥¼ ì„ íƒí•˜ì„¸ìš”. ìˆ˜ì •í•˜ì§€ ì•Šì„ ë°ì´í„°ëŠ” 0ìœ¼ë¡œ ì ì–´ì£¼ì„¸ìš”.");
+		//System.out.println("ì˜ˆ) ì „í™”ë²ˆí˜¸ì™€ ìƒë…„ì›”ì¼ ìˆ˜ì • : 0  , ëª¨ë‘ ìˆ˜ì • : 1 2 3");
+		System.out.println("1. ì´ë¦„");
+		System.out.println("2. ì „í™”ë²ˆí˜¸");
 		
 		
 		for(i = 0; i < input.length; i++) {
@@ -180,46 +180,46 @@ public class PhoneBookManager {
 		
 		for(i = 1; i < ischecked.length; i++) {
 			if(ischecked[i] && i == 1) {
-				System.out.print("¼öÁ¤ÇÒ ÀÌ¸§ ÀÔ·Â : ");
+				System.out.print("ìˆ˜ì •í•  ì´ë¦„ ì…ë ¥ : ");
 				newInfo[0] = sc.next();
 				tmp.setName(newInfo[0]);
 			}else if(ischecked[i] && i == 2) {
-				System.out.print("¼öÁ¤ÇÒ ÀüÈ­¹øÈ£ ÀÔ·Â : ");
+				System.out.print("ìˆ˜ì •í•  ì „í™”ë²ˆí˜¸ ì…ë ¥ : ");
 				newInfo[1] = sc.next();
 				tmp.setPhoneNumber(newInfo[1]);
 			}
 		}
-	}
+	} */
 	
-	/* µ¥ÀÌÅÍ ÀüºÎ Ãâ·Â */
+	/* ë°ì´í„° ì „ë¶€ ì¶œë ¥ */
 	public void showPhoneInfo() {
 		Iterator<PhoneInfo> itr = info.iterator();
 		if(info.isEmpty()) {
-			System.out.println("ÀúÀåµÇ¾î ÀÖ´Â µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.");
+			System.out.println("ì €ì¥ë˜ì–´ ìˆëŠ” ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.");
 			return;
 		}
 		while(itr.hasNext()) {
 			PhoneInfo tmp = itr.next();
 			if(tmp instanceof PhoneUnivInfo) {
 				System.out.println("=======================================" + "\n"
-						+ "ÀÌ¸§ : " + tmp.getName() + "\n"
-						+ "ÀüÈ­¹øÈ£ : " + tmp.getPhoneNumber() + "\n"
-						+ "Àü°ø : " + ((PhoneUnivInfo)tmp).getMajor() + "\n"
-						+ "ÇĞ³â : " + ((PhoneUnivInfo) tmp).getYear() + "\n"
+						+ "ì´ë¦„ : " + tmp.getName() + "\n"
+						+ "ì „í™”ë²ˆí˜¸ : " + tmp.getPhoneNumber() + "\n"
+						+ "ì „ê³µ : " + ((PhoneUnivInfo)tmp).getMajor() + "\n"
+						+ "í•™ë…„ : " + ((PhoneUnivInfo) tmp).getYear() + "\n"
 						+ "========================================");
 			}
 			else if(tmp instanceof PhoneCompanyInfo) {
 				System.out.println("=======================================" + "\n"
-						+ "ÀÌ¸§ : " + tmp.getName() + "\n"
-						+ "ÀüÈ­¹øÈ£ : " + tmp.getPhoneNumber() + "\n"
-						+ "È¸»ç : " + ((PhoneCompanyInfo) tmp).getCompany() + "\n"
+						+ "ì´ë¦„ : " + tmp.getName() + "\n"
+						+ "ì „í™”ë²ˆí˜¸ : " + tmp.getPhoneNumber() + "\n"
+						+ "íšŒì‚¬ : " + ((PhoneCompanyInfo) tmp).getCompany() + "\n"
 						+ "========================================");
 			}
 			else 
 				{
 				System.out.println("=======================================" + "\n"
-						+ "ÀÌ¸§ : " + tmp.getName() + "\n"
-						+ "ÀüÈ­¹øÈ£ : " + tmp.getPhoneNumber() + "\n"
+						+ "ì´ë¦„ : " + tmp.getName() + "\n"
+						+ "ì „í™”ë²ˆí˜¸ : " + tmp.getPhoneNumber() + "\n"
 						+ "========================================");
 				}			
 			}
